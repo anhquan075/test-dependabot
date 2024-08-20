@@ -32,7 +32,7 @@ torch = [
     { version = "^2.2.0+cpu", source = "pytorch-cpu" },
 ]
 faiss-cpu = "^1.7.4"
-simsimd = "=3.7.7"
+simsimd = "=5.0.1"
 coredis = "^4.16.0"
 pydantic-core = "^2.16.3"
 openai = "^1.14.1"
