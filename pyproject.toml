@@ -27,7 +27,7 @@ click = "^8.1.7"
 rich = "^13.7.0"
 asgi-correlation-id = "^4.3.0"
 structlog = "^24.1.0"
-boto3 = "^1.34.29"
+boto3 = "^1.35.1"
 torch = [
     { version = "^2.2.0", source = "PyPI", platform = "darwin" },
     { version = "^2.2.0+cpu", source = "pytorch-cpu", platform = "!=darwin" },
