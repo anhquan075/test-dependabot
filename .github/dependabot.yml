@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: daily
+      time: "14:45"
+      timezone: Asia/Ho_Chi_Minh
+    reviewers:
+      - anhquan075
+    target-branch: main
+    labels: [Dependencies]
