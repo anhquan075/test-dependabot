@@ -16,4 +16,3 @@ jobs:
         if: ${{ github.event_name == 'pull_request_target' }}
         with:
           fail-on-severity: low
-          
