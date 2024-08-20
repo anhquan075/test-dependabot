@@ -9,7 +9,7 @@ include = ["VERSION", "README.md"]
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
 fastapi = "^0.109.0"
-uvicorn = "^0.25.0"
+uvicorn = "^0.30.6"
 sqlalchemy = {extras = ["asyncio"], version = "^2.0.30"}
 alembic = "^1.13.1"
 pydantic-settings = "^2.1.0"
