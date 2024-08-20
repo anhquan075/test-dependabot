@@ -2227,20 +2227,20 @@ tenacity = ">=8.1.0,<8.4.0 || >8.4.0,<9.0.0"
 
 [[package]]
 name = "langchain-community"
-version = "0.2.12"
+version = "0.2.6"
 description = "Community contributed LangChain integrations."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langchain_community-0.2.12-py3-none-any.whl", hash = "sha256:50e74473dd2309bdef561760afbbf0c5ea17ed91fc4dfa0d52279dd16d6d34e0"},
-    {file = "langchain_community-0.2.12.tar.gz", hash = "sha256:d671cfc6a4f3b65f49a2e59ab420d0164f109d0a56fc4b4996518205c63b8c7e"},
+    {file = "langchain_community-0.2.6-py3-none-any.whl", hash = "sha256:758cc800acfe5dd396bf8ba1b57c4792639ead0eab48ed0367f0732ec6ee1f68"},
+    {file = "langchain_community-0.2.6.tar.gz", hash = "sha256:40ce09a50ed798aa651ddb34c8978200fa8589b9813c7a28ce8af027bbf249f0"},
 ]
 
 [package.dependencies]
 aiohttp = ">=3.8.3,<4.0.0"
 dataclasses-json = ">=0.5.7,<0.7"
-langchain = ">=0.2.13,<0.3.0"
-langchain-core = ">=0.2.30,<0.3.0"
+langchain = ">=0.2.6,<0.3.0"
+langchain-core = ">=0.2.10,<0.3.0"
 langsmith = ">=0.1.0,<0.2.0"
 numpy = [
     {version = ">=1,<2", markers = "python_version < \"3.12\""},
@@ -2306,16 +2306,17 @@ langchain-core = ">=0.2.10,<0.3.0"
 
 [[package]]
 name = "langsmith"
-version = "0.1.99"
+version = "0.1.100"
 description = "Client library to connect to the LangSmith LLM Tracing and Evaluation Platform."
 optional = false
 python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "langsmith-0.1.99-py3-none-any.whl", hash = "sha256:ef8d1d74a2674c514aa429b0171a9fbb661207dc3835142cca0e8f1bf97b26b0"},
-    {file = "langsmith-0.1.99.tar.gz", hash = "sha256:b5c6a1f158abda61600a4a445081ee848b4a28b758d91f2793dc02aeffafcaf1"},
+    {file = "langsmith-0.1.100-py3-none-any.whl", hash = "sha256:cae44a884a4166c4d8b9cc5ff99f5d520337bd90b9dadfe3706ed31415d559a7"},
+    {file = "langsmith-0.1.100.tar.gz", hash = "sha256:20ff0126253a5a1d621635a3bc44ccacc036e855f52185ae983420f14eb6c605"},
 ]
 
 [package.dependencies]
+httpx = ">=0.23.0,<1"
 orjson = ">=3.9.14,<4.0.0"
 pydantic = [
     {version = ">=1,<3", markers = "python_full_version < \"3.12.4\""},
@@ -5281,13 +5282,13 @@ telegram = ["requests"]
 
 [[package]]
 name = "transformers"
-version = "4.44.0"
+version = "4.44.1"
 description = "State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow"
 optional = false
 python-versions = ">=3.8.0"
 files = [
-    {file = "transformers-4.44.0-py3-none-any.whl", hash = "sha256:ea0ff72def71e9f4812d9414d4803b22681b1617aa6f511bd51cfff2b44a6fca"},
-    {file = "transformers-4.44.0.tar.gz", hash = "sha256:75699495e30b7635ca444d8d372e138c687ab51a875b387e33f1fb759c37f196"},
+    {file = "transformers-4.44.1-py3-none-any.whl", hash = "sha256:bd2642da18b4e6d29b135c17650cd7ca8e874f2d092d2eddd3ed6b71a93a155c"},
+    {file = "transformers-4.44.1.tar.gz", hash = "sha256:3b9a1a07ca65c665c7bf6109b7da76182184d10bb58d9ab14e6892e7b9e073a2"},
 ]
 
 [package.dependencies]
@@ -5430,29 +5431,29 @@ zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "uv"
-version = "0.2.37"
-description = "An extremely fast Python package installer and resolver, written in Rust."
+version = "0.3.0"
+description = "An extremely fast Python package and project manager, written in Rust."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "uv-0.2.37-py3-none-linux_armv6l.whl", hash = "sha256:541670c863de680dbc355c0c5829e52d282f6f98ca742ae76dc8fe61d182e813"},
-    {file = "uv-0.2.37-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:bcb2ec826ae4fa9f8cac90e1289c1961aa3220b95b314426038f54278237de8a"},
-    {file = "uv-0.2.37-py3-none-macosx_11_0_arm64.whl", hash = "sha256:99d4f0f510c5aa807ef1141fd8cb31f25fb53587dadacb0e28e4f51eaca6f0ad"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:6fb5a27816115e99a2463736054db5e0ebb84d9ebf38ccf71c4c7b253e945234"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:3bd4d5a36fef0d81985eb15b5533f29d7f0e2c2c31d8b485703855b73ad0d8fd"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:d80e51ab8e30ccc8ab1bbbe1a823d07cd0a7ec7c18d03dd61c6d19f0e191e1f4"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:8a2221baf510fa3bc3f428cfa43ebae8635b7b313946c7092a586f88362ebfe2"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:2ae005ad344f6839ef503d05c94838b4137fa69c4bdc35340fb3b0297a7282e2"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:aad8389672c7905559a7fbd8f7271a3512d4e4b3b8510334a27fbd3a4141d6dd"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a6d6748da729a7c11aed34733bc9884ae6a9adc289dc09f33da36dd2a1f14bcb"},
-    {file = "uv-0.2.37-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:8c75851a3e6c236ce8279d9470cfca08f0d9b1d87b610beaf22028fcf3125ded"},
-    {file = "uv-0.2.37-py3-none-musllinux_1_1_armv7l.whl", hash = "sha256:72eb6b7f01d79bd758b438de0281f3e4c9af6005860cabcf4743fc7752f61022"},
-    {file = "uv-0.2.37-py3-none-musllinux_1_1_i686.whl", hash = "sha256:7fdf403b48a430f6c42773190971f55efe235f326ce9f785ca5fae5aa20e3c8a"},
-    {file = "uv-0.2.37-py3-none-musllinux_1_1_ppc64le.whl", hash = "sha256:80b704aa0547196e249dfa6fee6027dd53b26e804f2f7b222ce1a24113d71fce"},
-    {file = "uv-0.2.37-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:0d7c06dab6aa5212646a1f2a7ca8117ea15879fc0867507af19007cf0ffd8e63"},
-    {file = "uv-0.2.37-py3-none-win32.whl", hash = "sha256:7a61aec56e4a7e6b0ef924905006c16da23e8f91d2dd8d740ca7ea76400a0316"},
-    {file = "uv-0.2.37-py3-none-win_amd64.whl", hash = "sha256:3e0d79c8786e9e904320d72d2ee84c77004c1d241c272fbcb3bd768040e8e292"},
-    {file = "uv-0.2.37.tar.gz", hash = "sha256:40b409f276b4c027fd16070bd9568e981db9d6cf3b7e8b443d06972dbef79c30"},
+    {file = "uv-0.3.0-py3-none-linux_armv6l.whl", hash = "sha256:d3da56b87ec5aa4f2ae572127c754655bad3820dd41a4d37ed4d5e2f67035990"},
+    {file = "uv-0.3.0-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:b44ebf501de5eef33e4f3cf4b6ea9a458d1f1b3cf26737c25ac507ab7914076a"},
+    {file = "uv-0.3.0-py3-none-macosx_11_0_arm64.whl", hash = "sha256:39a4276afe0808ca6c033e0cd6cb73249f934b4a0c9d7b18a944f3f8ea635e27"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.musllinux_1_1_aarch64.whl", hash = "sha256:0da4f060d583325846cde0727a8cc0cb4e8c63b30ac9373dae213a7315056d90"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:52b3a6110705ff27462ddc68657fedf8a296ed545619a90fa73354f130ad632e"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:2f937ebdf9976ec1ffe7228fd608ef3e6ce2a61ed68cf7b157ae6900a9c80f41"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_ppc64.manylinux2014_ppc64.whl", hash = "sha256:6d1025349cbaeba9a974d413795d0ce8d37de5ad7fb7654c0519968b2c083ba1"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:a15b2321444f3668bc95863d2b13ce44ea54053189427ea48d112ecd8b3d2f89"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:4303364d717b1def58e82b11271259d2ee3bb03da0ca6111819ee254f65b38f4"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:084551ee0743339aa5d0d4c76a94c9f9df16c33030b850f0cd98f316db7b42cc"},
+    {file = "uv-0.3.0-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:d87ff76da5128036c05db0291db7510a85cb8efb86538e8f49adc8074bb292f0"},
+    {file = "uv-0.3.0-py3-none-musllinux_1_1_armv7l.whl", hash = "sha256:503fc619238550be222b41422b415677c9b8045c92a9815f80ff5d7477671fe6"},
+    {file = "uv-0.3.0-py3-none-musllinux_1_1_i686.whl", hash = "sha256:5c826d9daace67d67790503b0c1152093b3cecd35a91de10f5bb9e26afea9de9"},
+    {file = "uv-0.3.0-py3-none-musllinux_1_1_ppc64le.whl", hash = "sha256:a71b7080ee6d7658b22f93aa750cbfd19111cd6c8ac643a73d6778598dd06559"},
+    {file = "uv-0.3.0-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:24a1388f5e285058f97576b7dfee79bb5007a712a9e368f3fcdcfeb2dfd9ce92"},
+    {file = "uv-0.3.0-py3-none-win32.whl", hash = "sha256:21ebc6ca30df7ff57a8e17e3abeeba8a9d1d4ac79c1adf842fa42d48a5c7f372"},
+    {file = "uv-0.3.0-py3-none-win_amd64.whl", hash = "sha256:160a1f3b01298942d6cfe21f95a9b7daa3eb73231ba1fc4689157eb9f23b3438"},
+    {file = "uv-0.3.0.tar.gz", hash = "sha256:3b62e44f61a154303fc9f4aa87ae54891957d49769d21dcf2be9c22e640c3e92"},
 ]
 
 [[package]]
@@ -5925,4 +5926,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11,<3.13"
-content-hash = "401850ebe1fc88f968178f71a720112d24f8f31bd249a902a091fb5f6e47a3c7"
+content-hash = "aa6d7963f6dfb17cf7b1cbf87a92f19acdf9f7ed00160409531bc66db8fbaff6"
