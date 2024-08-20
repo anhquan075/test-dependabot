@@ -1,9 +1,9 @@
 [tool.poetry]
-name = "test"
+name = "smart-match"
 version = "0.1.0"
-description = "test Repo"
+description = "SmartMatch Repo"
 readme = "README.md"
-authors = ["Test"]
+authors = ["Data team <data-team@example.com>"]
 include = ["VERSION", "README.md"]
 
 [tool.poetry.dependencies]
