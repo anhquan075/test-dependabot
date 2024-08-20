@@ -47,7 +47,7 @@ python-dateutil = "^2.9.0.post0"
 psycopg2-binary = "^2.9.9"
 numpy = "1.26"
 langchain-community = "^0.2.6"
-locust = "^2.29.1"
+locust = "^2.31.3"
 bentoml = "^1.2.19"
 html2text = "^2024.2.26"
 
