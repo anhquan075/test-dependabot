@@ -10,12 +10,11 @@ updates:
       - anhquan075
     target-branch: main
     labels: [Dependencies]
-    allow:
-      - dependency-name: "*"
-        dependency-type: "production"
     ignore:
       # Disable all updates except security updates
       # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#specifying-dependencies-and-versions-to-ignore
       - dependency-name: "*"
         update-types:
           - "version-update:semver-patch"
+          - "version-update:semver-minor"
+          - "version-update:semver-major"
