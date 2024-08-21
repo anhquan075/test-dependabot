@@ -30,7 +30,7 @@ structlog = "^24.1.0"
 boto3 = "^1.34.29"
 torch = [
     { version = "^2.2.0", source = "PyPI", platform = "darwin" },
-    { version = "^2.2.0+cpu", source = "pytorch-cpu", platform = "!=darwin" },
+    { version = "^2.2.0+cpu", source = "pytorch-cpu", platform = "linux" },
 ]
 faiss-cpu = "^1.7.4"
 simsimd = "=3.7.7"
