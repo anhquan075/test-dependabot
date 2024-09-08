@@ -15,20 +15,20 @@ jobs:
     - name: Get codeowners
       run: |
         wget https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz -O codeowners.tar.gz  && tar xvf codeowners.tar.gz && cp codeowners /usr/local/bin/codeowners
-        codeowners | cut -d' ' -f2- | sed 's/^[[:space:]]*//' | sort -u | tr '\n' ' ' | sed 's/ $//'
+        echo "CODEOWNERS=$(codeowners $(gh pr view ${{ github.event.pull_request.html_url }}  --json files -q '.files[].path' | tr '\n' ' ')  | cut -d' ' -f2- | sed 's/^[[:space:]]*//' | sort -u | tr '\n' ' ' | sed 's/ $//')" >> "$GITHUB_OUTPUT"
     - name: Get user's e-mail
       id: user_email
       run: |
         echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"
-    # - name: Send GitHub trigger payload to Slack Workflow Builder
-    #   id: slack
-    #   uses: slackapi/slack-github-action@v1.26.0
-    #   with:
-    #     payload: |
-    #       {
-    #         "url": "${{ github.event.pull_request.html_url }}",
-    #         "title": "${{ github.event.pull_request.title }}",
-    #         "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}"
-    #       }
-    #   env:
-    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: Send GitHub trigger payload to Slack Workflow Builder
+      id: slack
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        payload: |
+          {
+            "url": "${{ github.event.pull_request.html_url }}",
+            "title": "${{ github.event.pull_request.title }}",
+            "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
