@@ -34,5 +34,6 @@ jobs:
             "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}"
             "reviewers": "${{ steps.codeowners.outputs.CODEOWNERS }}"
           }
+        payload-file-path-parsed: false
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
