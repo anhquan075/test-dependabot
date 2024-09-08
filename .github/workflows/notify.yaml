@@ -15,7 +15,12 @@ jobs:
     - name: Get reviewers
       id: reviewers
       run: |
-        echo ${{ fromJSON(github.event.pull_request.requested_reviewers) }} | jq -r '.[].login'
+        URL=${{ github.event.pull_request.url }} | sed 's|https://github.com/||')
+        REVIEWERS=$(gh api \
+        -H "Accept: application/vnd.github+json" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        /repos/$URL/requested_reviewers | jq -r '.users[].login')
+        echo $REVIEWERS
     - name: Get user's e-mail
       id: user_email
       run: |
