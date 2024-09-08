@@ -1,7 +1,7 @@
 name: Notify new PR
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, reopened]
 
 jobs:
   notify_job:
@@ -11,25 +11,28 @@ jobs:
     - name: Checks out repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 2
-    - name: Get reviewers
-      id: reviewers
+        fetch-depth: 0
+    - name: Get codeowners
+      id: codeowners
       run: |
-        echo "REVIEWERS=${{ github.event.pull_request.requested_reviewers }}" 
+        wget https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz -O codeowners.tar.gz  && tar xvf codeowners.tar.gz && cp codeowners /usr/local/bin/codeowners
+        echo "CODEOWNERS=$(codeowners $(gh pr view ${{ github.event.pull_request.html_url }}  --json files -q '.files[].path' | tr '\n' ' ')  | cut -d' ' -f2- | sed 's/^[[:space:]]*//' | sort -u | tr '\n' ' ' | sed 's/ $//')" >> "$GITHUB_OUTPUT"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     - name: Get user's e-mail
       id: user_email
       run: |
-        git checkout remotes/origin/${{ github.event.pull_request.head.ref }}
-        echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"
-    # - name: Send GitHub trigger payload to Slack Workflow Builder
-    #   id: slack
-    #   uses: slackapi/slack-github-action@v1.26.0
-    #   with:
-    #     payload: |
-    #       {
-    #         "url": "${{ github.event.pull_request.html_url }}",
-    #         "title": "${{ github.event.pull_request.title }}",
-    #         "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}"
-    #       }
-    #   env:
-    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"  >> "$GITHUB_OUTPUT"
+    - name: Send GitHub trigger payload to Slack Workflow Builder
+      id: slack
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        payload: |
+          {
+            "url": "${{ github.event.pull_request.html_url }}",
+            "title": "${{ github.event.pull_request.title }}",
+            "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}",
+            "reviewers": "${{ steps.codeowners.outputs.CODEOWNERS }}"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
