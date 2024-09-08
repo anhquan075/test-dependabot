@@ -22,7 +22,7 @@ jobs:
     - name: Get user's e-mail
       id: user_email
       run: |
-        echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"
+        echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"  >> "$GITHUB_OUTPUT"
     - name: Send GitHub trigger payload to Slack Workflow Builder
       id: slack
       uses: slackapi/slack-github-action@v1.26.0
