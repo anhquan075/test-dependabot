@@ -1,0 +1,35 @@
+name: Notify new PR
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  notify_job:
+    runs-on: ubuntu-latest
+    name: New PR created to repo
+    steps:
+    - name: Checks out repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+    - name: Get reviewers
+      id: reviewers
+      run: |
+        echo "REVIEWERS=${{ github.event.pull_request.requested_reviewers }}" 
+    - name: Get user's e-mail
+      id: user_email
+      run: |
+        git checkout remotes/origin/${{ github.event.pull_request.head.ref }}
+        echo "AUTHOR_EMAIL=$(git log -n 1 --pretty=format:%ae)"
+    # - name: Send GitHub trigger payload to Slack Workflow Builder
+    #   id: slack
+    #   uses: slackapi/slack-github-action@v1.26.0
+    #   with:
+    #     payload: |
+    #       {
+    #         "url": "${{ github.event.pull_request.html_url }}",
+    #         "title": "${{ github.event.pull_request.title }}",
+    #         "sender": "${{ steps.user_email.outputs.AUTHOR_EMAIL }}"
+    #       }
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
