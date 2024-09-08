@@ -15,7 +15,7 @@ jobs:
     - name: Get reviewers
       id: reviewers
       run: |
-        echo "REVIEWERS=${{ join(github.event.pull_request.requested_reviewers, ' ') }}" 
+        echo "REVIEWERS=${{ toJson(github.event.pull_request.requested_reviewers) }}" 
     - name: Get user's e-mail
       id: user_email
       run: |
