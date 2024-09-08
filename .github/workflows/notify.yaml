@@ -15,7 +15,7 @@ jobs:
     - name: Get codeowners
       run: |
         sudo apt-get update && sudo apt-get install -y jq curl
-        curl -o codeowners.tar.gz https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz  | tar xvf codeowners.tar.gz && cp codeowners/codeowners /usr/local/bin/codeowners
+        curl -o codeowners.tar.gz https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz  && tar xvf codeowners.tar.gz && cp codeowners/codeowners /usr/local/bin/codeowners
         codeowners --help
     - name: Get user's e-mail
       id: user_email
