@@ -17,8 +17,6 @@ jobs:
         apt-get update && apt-get install -y jq curl
         curl https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz -O codeowners.tar.gz | tar xvf codeowners.tar.gz && cp codeowners/codeowners /usr/local/bin/codeowners
         codeowners --help
-      env:
-        GH_TOKEN: ${{ github.token }}
     - name: Get user's e-mail
       id: user_email
       run: |
