@@ -14,9 +14,8 @@ jobs:
         fetch-depth: 2
     - name: Get codeowners
       run: |
-        sudo apt-get update && sudo apt-get install -y jq curl
-        curl -o codeowners.tar.gz https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz  && tar xvf codeowners.tar.gz && cp codeowners/codeowners /usr/local/bin/codeowners
-        codeowners --help
+        wget https://github.com/hmarr/codeowners/releases/download/v1.2.1/codeowners_1.2.1_linux_amd64.tar.gz -O codeowners.tar.gz  && tar xvf codeowners.tar.gz && cp codeowners /usr/local/bin/codeowners
+        codeowners | cut -d' ' -f2- | sed 's/^[[:space:]]*//' | sort -u | tr '\n' ' ' | sed 's/ $//'
     - name: Get user's e-mail
       id: user_email
       run: |
