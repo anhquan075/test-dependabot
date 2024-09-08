@@ -1,7 +1,7 @@
 name: Notify new PR
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, reopened]
 
 jobs:
   notify_job:
@@ -11,7 +11,7 @@ jobs:
     - name: Checks out repository
       uses: actions/checkout@v3
       with:
-        fetch-depth: 2
+        fetch-depth: 0
     - name: Get reviewers
       id: reviewers
       run: |
